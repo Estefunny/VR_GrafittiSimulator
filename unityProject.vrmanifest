@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.grafittisimulator.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "H:\\VR\\GrafittiSimulator\\GrafittiSimulator\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "GrafittiSimulator [Testing]"
+        }
+      }
+    }
+  ]
+}
