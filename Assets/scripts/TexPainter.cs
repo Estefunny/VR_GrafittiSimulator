@@ -110,7 +110,7 @@ public class TexturePainter : MonoBehaviour {
 		saving = false;
 	}
 
-	////////////////// PUBLIC METHODS //////////////////
+	////////////////// EIERLUTSCHEN //////////////////
 
 	public void SetBrushMode(Painter_BrushMode brushMode){ //Sets if we are painting or placing decals
 		mode = brushMode;
@@ -120,21 +120,4 @@ public class TexturePainter : MonoBehaviour {
 		brushSize = newBrushSize;
 		brushCursor.transform.localScale = Vector3.one * brushSize;
 	}
-
-	////////////////// OPTIONAL METHODS //////////////////
-
-	#if !UNITY_WEBPLAYER 
-		IEnumerator SaveTextureToFile(Texture2D savedTexture){		
-			brushCounter=0;
-			string fullPath=System.IO.Directory.GetCurrentDirectory()+"\\UserCanvas\\";
-			System.DateTime date = System.DateTime.Now;
-			string fileName = "CanvasTexture.png";
-			if (!System.IO.Directory.Exists(fullPath))		
-				System.IO.Directory.CreateDirectory(fullPath);
-			var bytes = savedTexture.EncodeToPNG();
-			System.IO.File.WriteAllBytes(fullPath+fileName, bytes);
-			Debug.Log ("<color=orange>Saved Successfully!</color>"+fullPath+fileName);
-			yield return null;
-		}
-	#endif
 }
