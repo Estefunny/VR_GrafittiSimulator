@@ -54,6 +54,10 @@ namespace Valve.VR.InteractionSystem
 		private Vector3 lateUpdatePos;
 		private Quaternion lateUpdateRot;
 
+        public Sprayer sprayer;
+        public GameObject sprayOrigin;
+        public Transform sprayDirection;
+
 		SteamVR_Events.Action newPosesAppliedAction;
 
 
@@ -179,13 +183,24 @@ namespace Valve.VR.InteractionSystem
 
 		}
 
-        private void Update()
+        private void FixedUpdate()
         {
-            GrabTypes bestGrab = hand.GetBestGrabbingType(GrabTypes.Pinch, true);
-            if (bestGrab != GrabTypes.None)
+
+
+            
+
+            float triggerValue = 0;
+            if (hand.GetDeviceIndex() == 1)
             {
-                print(bestGrab);
+                triggerValue = SteamVR_Actions.default_Squeeze.GetAxis(SteamVR_Input_Sources.LeftHand);
+            } else if (hand.GetDeviceIndex() == 2)
+            {
+                triggerValue = SteamVR_Actions.default_Squeeze.GetAxis(SteamVR_Input_Sources.RightHand);
             }
+            sprayer.sprayerUpdate(sprayOrigin.transform.position, 
+                (sprayDirection.position - sprayOrigin.transform.position).normalized, 
+                triggerValue);
+
         }
     }
 }
