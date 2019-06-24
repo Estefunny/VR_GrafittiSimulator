@@ -194,13 +194,16 @@ namespace Valve.VR.InteractionSystem
         {
 
             float triggerValue = 0;
-            if (hand.GetDeviceIndex() == 1)
+			
+            if (currentHandGuess == Handedness.Left)
             {
                 triggerValue = SteamVR_Actions.default_Squeeze.GetAxis(SteamVR_Input_Sources.LeftHand);
-            } else if (hand.GetDeviceIndex() == 2)
+            } else
             {
                 triggerValue = SteamVR_Actions.default_Squeeze.GetAxis(SteamVR_Input_Sources.RightHand);
             }
+
+            print(triggerValue);
 			
 			sprayHead.transform.localPosition = sprayHeadOriginalPos + sprayHeadMovement * triggerValue;
 			
