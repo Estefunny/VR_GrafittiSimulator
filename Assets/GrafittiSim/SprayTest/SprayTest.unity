@@ -287,6 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 27bf89080e7de1048a61d4d1dbae080e, type: 2}
   meshRenderer: {fileID: 828101885}
+  radiusScale: 1
 --- !u!64 &828101889
 MeshCollider:
   m_ObjectHideFlags: 0

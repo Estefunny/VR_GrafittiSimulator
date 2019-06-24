@@ -1,9 +1,24 @@
 fileFormatVersion: 2
-guid: a3cdaff2ac79a6b42a88b1974d30b5fc
+guid: e22c4a452c7c50747a43d3b44ec51438
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    2186277476908879412: ImportLogs
+    100000: //RootNode
+    100002: pCylinder1
+    100004: pCylinder2
+    400000: //RootNode
+    400002: pCylinder1
+    400004: pCylinder2
+    2100000: lambert3
+    2100002: blinn5
+    2100004: blinn4
+    2100006: blinn3
+    2300000: pCylinder1
+    2300002: pCylinder2
+    3300000: pCylinder1
+    3300002: pCylinder2
+    4300000: pCylinder1
+    4300002: pCylinder2
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -84,7 +99,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

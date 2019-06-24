@@ -27,17 +27,15 @@ public class SprayTarget : MonoBehaviour {
     public float radiusScale = 1;
 
     public static void saveStep() {
-        foreach(SprayTarget t in sceneTargets) {
+        foreach (SprayTarget t in sceneTargets) {
             t.saveTextureToList();
         }
     }
 
     private void saveTextureToList() {
-        if (undoStepCount > 0)
-        {
+        if (undoStepCount > 0) {
             undoSteps.AddFirst(copyTexture(tex));
-            if (undoSteps.Count > undoStepCount)
-            {
+            if (undoSteps.Count > undoStepCount) {
                 undoSteps.RemoveLast();
             }
         }
@@ -70,22 +68,17 @@ public class SprayTarget : MonoBehaviour {
     public void drawSpray(Vector2 center, Color c, float distance, float strength) {
         if (distance <= maximumDistance) {
             float distanceValue = distance / maximumDistance;
-            drawCircleOnTexture(tex, center, 
+            drawCircleOnTexture(tex, center,
                 (int)Mathf.Lerp(minimumRadius, maximumRadius, distanceValue),
-                (int)Mathf.Lerp(minimumCenterRadius, maximumCenterRadius, distanceValue), 
-                c, 
+                (int)Mathf.Lerp(minimumCenterRadius, maximumCenterRadius, distanceValue),
+                c,
                 Mathf.Lerp(minimumAlpha, maximumAlpha, distanceValue) * strength);
         }
     }
 
     private Color getPixelColor(int x, int y, Color c) {
         if (c.a < 1) {
-            Color originalColor = originalTex.GetPixel(x, y);
-            return new Color(
-                c.r * c.a + originalColor.r * (1 - c.a),
-                c.g * c.a + originalColor.g * (1 - c.g),
-                c.b * c.a + originalColor.b * (1 - c.b),
-                1);
+            return originalTex.GetPixel(x, y);
         }
 
         return c;
@@ -95,17 +88,24 @@ public class SprayTarget : MonoBehaviour {
         int x = (int)(t.width * center.x);
         int y = (int)(t.height * center.y);
 
-        for (int i = x - radius; i < x + radius; i++) {
-            for (int j = y - radius; j < y + radius; j++) {
-                if (i >= 0 && j >= 0 && i < t.width && j < t.height) {
-                    float colorValue = Mathf.Clamp01((new Vector2(i - x, j - y).magnitude - centerRadius) / (radius - centerRadius));
+        if (x - radius >= 0 && y - radius >= 0 && t.width - x >= radius && t.height - y >= radius) {
+            x -= radius;
+            y -= radius;
+            int diameter = 2 * radius;
+            Color[] colorArray = t.GetPixels(x, y, diameter, diameter);
+
+            for (int i = 0; i < diameter; i++) {
+                for (int j = 0; j < diameter; j++) {
+                    float colorValue = Mathf.Clamp01((new Vector2(i - radius, j - radius).magnitude - centerRadius) / (radius - centerRadius));
                     colorValue = (1 - colorValue) * alpha;
-                    t.SetPixel(i, j, t.GetPixel(i, j) * (1 - colorValue) + getPixelColor(i, j, c) * colorValue);
+                    colorArray[j * diameter + i] = Color.Lerp(colorArray[j * diameter + i], getPixelColor(i + x, j + y, c), colorValue);
                 }
             }
-        }
 
-        t.Apply();
+            t.SetPixels(x, y, diameter, diameter, colorArray);
+
+            t.Apply();
+        }
 
     }
 

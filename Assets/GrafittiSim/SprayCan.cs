@@ -57,8 +57,15 @@ namespace Valve.VR.InteractionSystem
         public Sprayer sprayer;
         public GameObject sprayOrigin;
         public Transform sprayDirection;
+		public GameObject sprayHead;
+		public Vector3 sprayHeadMovement;
+		private Vector3 sprayHeadOriginalPos;
 
 		SteamVR_Events.Action newPosesAppliedAction;
+		
+		public void Start() {
+			sprayHeadOriginalPos = sprayHead.transform.localPosition;
+		}
 
 
 		//-------------------------------------------------
@@ -186,9 +193,6 @@ namespace Valve.VR.InteractionSystem
         private void FixedUpdate()
         {
 
-
-            
-
             float triggerValue = 0;
             if (hand.GetDeviceIndex() == 1)
             {
@@ -197,6 +201,9 @@ namespace Valve.VR.InteractionSystem
             {
                 triggerValue = SteamVR_Actions.default_Squeeze.GetAxis(SteamVR_Input_Sources.RightHand);
             }
+			
+			sprayHead.transform.localPosition = sprayHeadOriginalPos + sprayHeadMovement * triggerValue;
+			
             sprayer.sprayerUpdate(sprayOrigin.transform.position, 
                 (sprayDirection.position - sprayOrigin.transform.position).normalized, 
                 triggerValue);
