@@ -25,6 +25,34 @@ public class SprayTarget : MonoBehaviour {
     private float minimumAlpha = 0.5f;
 
     public float radiusScale = 1;
+    public Vector2 dripDirection;
+
+    private int drips = 0;
+    private int maxDrips = 1;
+
+    public void removeDrip() {
+        drips -= 1;
+    }
+
+    public void createDrip(Vector2 pos, Color c) {
+        drips++;
+        gameObject.AddComponent<SprayDrip>().initialize(pos, this, c);
+    }
+
+    public Texture2D getTex() {
+        return tex;
+    }
+
+    public static void clear() {
+        foreach (SprayTarget t in sceneTargets) {
+            t.clearTexture();
+        }
+    }
+
+    private void clearTexture() {
+        tex.SetPixels(originalTex.GetPixels());
+        tex.Apply();
+    }
 
     public static void saveStep() {
         foreach (SprayTarget t in sceneTargets) {
@@ -65,14 +93,26 @@ public class SprayTarget : MonoBehaviour {
         return copy;
     }
 
-    public void drawSpray(Vector2 center, Color c, float distance, float strength) {
+    private bool colorEqual(Color c1, Color c2) {
+        return Mathf.Abs(c1.r - c2.r) + Mathf.Abs(c1.g - c2.g) + Mathf.Abs(c1.b - c2.b) < 0.06f;
+    }
+
+    public void drawSpray(Vector2 center, Color c, float distance, float strength, float distanceMult, float radiusMult) {
         if (distance <= maximumDistance) {
-            float distanceValue = distance / maximumDistance;
+            float distanceValue = distance / (maximumDistance * distanceMult);
             drawCircleOnTexture(tex, center,
-                (int)Mathf.Lerp(minimumRadius, maximumRadius, distanceValue),
-                (int)Mathf.Lerp(minimumCenterRadius, maximumCenterRadius, distanceValue),
+                (int)(Mathf.Lerp(minimumRadius, maximumRadius, distanceValue) * radiusMult),
+                (int)(Mathf.Lerp(minimumCenterRadius, maximumCenterRadius, distanceValue) * radiusMult),
                 c,
                 Mathf.Lerp(minimumAlpha, maximumAlpha, distanceValue) * strength);
+            if (drips < maxDrips && Random.value > 0.9f) {
+                int x = (int)(tex.width * center.x);
+                int y = (int)(tex.height * center.y);
+
+                if (colorEqual(tex.GetPixel(x, y), c)) {
+                    createDrip(center + new Vector2(Random.Range(-1.0f, 1.0f), 1).normalized * Mathf.Lerp(minimumRadius, maximumRadius, distanceValue) * radiusMult * 0.8f / tex.height, c);
+                }
+            }
         }
     }
 

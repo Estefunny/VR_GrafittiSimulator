@@ -202,8 +202,6 @@ namespace Valve.VR.InteractionSystem
             {
                 triggerValue = SteamVR_Actions.default_Squeeze.GetAxis(SteamVR_Input_Sources.RightHand);
             }
-
-            print(triggerValue);
 			
 			sprayHead.transform.localPosition = sprayHeadOriginalPos + sprayHeadMovement * triggerValue;
 			

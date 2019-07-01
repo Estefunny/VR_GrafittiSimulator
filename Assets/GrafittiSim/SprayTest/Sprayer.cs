@@ -7,6 +7,14 @@ public class Sprayer : MonoBehaviour {
     private bool spraying = false;
     private Color sprayColor = Color.blue;
 
+    private float radiusMult = 1;
+    private float distanceMult = 1;
+
+    public void setMultipliers(float distance, float radius) {
+        distanceMult = distance;
+        radiusMult = radius;
+    }
+
     public void setSprayColor(Color c) {
         sprayColor = c;
     }
@@ -30,7 +38,7 @@ public class Sprayer : MonoBehaviour {
         if (Physics.Raycast(origin, direction, out ray)) {
             SprayTarget t = ray.collider.gameObject.GetComponent<SprayTarget>();
             if (t != null) {
-                t.drawSpray(ray.textureCoord, sprayColor, ray.distance, strength);
+                t.drawSpray(ray.textureCoord, sprayColor, ray.distance, strength, distanceMult, radiusMult);
             }
 
         }
