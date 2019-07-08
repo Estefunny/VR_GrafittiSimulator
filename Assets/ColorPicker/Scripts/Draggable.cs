@@ -38,7 +38,7 @@ public class Draggable : MonoBehaviour
                 var point = hit.point;
                 //point = GetComponent<Collider>().ClosestPointOnBounds(point);
                 SetThumbPosition(point);
-                SendMessage("OnDrag", Vector3.one - (thumb.localPosition - minBound.localPosition) / GetComponent<BoxCollider>().bounds.size.x);
+                SendMessage("OnDrag", Vector3.one - (thumb.localPosition - minBound.localPosition) / GetComponent<BoxCollider>().size.x);
             }
 		}
 	}
@@ -53,6 +53,6 @@ public class Draggable : MonoBehaviour
 	{
         Vector3 temp = thumb.localPosition;
         thumb.position = point;
-        thumb.localPosition = new Vector3(fixX ? temp.x : thumb.localPosition.x, fixY ? temp.y : thumb.localPosition.y, thumb.localPosition.z - 1);
+        thumb.localPosition = new Vector3(fixX ? temp.x : thumb.localPosition.x, fixY ? temp.y : thumb.localPosition.y, thumb.localPosition.z - .01f);
 	}
 }

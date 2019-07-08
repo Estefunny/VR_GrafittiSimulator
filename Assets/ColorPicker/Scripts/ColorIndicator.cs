@@ -22,7 +22,7 @@ public class ColorIndicator : MonoBehaviour {
     }	
 
 	void SetSaturationBrightness(Vector2 sb) {
-		color.s = sb.x;
+        color.s = sb.x;
 		color.b = sb.y;
 		ApplyColor();
 	}

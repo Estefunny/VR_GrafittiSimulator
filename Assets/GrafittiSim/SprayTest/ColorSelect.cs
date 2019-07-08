@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ColorSelect : MonoBehaviour
 {
+    public ColorManager cm;
     public void setColor(int c)
     {
         Color set = Color.blue;
@@ -27,6 +28,8 @@ public class ColorSelect : MonoBehaviour
                 set = Color.clear;
                 break;
         }
+        set = cm.color;
+        set.a = 1;
         foreach (Sprayer s in FindObjectsOfType<Sprayer>())
         {
             s.setSprayColor(set);
