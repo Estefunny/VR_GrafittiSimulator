@@ -1,0 +1,199 @@
+fileFormatVersion: 2
+guid: 2c7a1c1812fc71546bfd346147334359
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Boombox
+    100002: Boombox 1
+    100004: Boombox 10
+    100006: Boombox 11
+    100008: Boombox 12
+    100010: Boombox 13
+    100012: Boombox 14
+    100014: Boombox 15
+    100016: Boombox 16
+    100018: Boombox 17
+    100020: Boombox 18
+    100022: Boombox 19
+    100024: Boombox 2
+    100026: Boombox 20
+    100028: Boombox 3
+    100030: Boombox 4
+    100032: Boombox 5
+    100034: Boombox 6
+    100036: Boombox 7
+    100038: Boombox 8
+    100040: Boombox 9
+    100042: //RootNode
+    400000: Boombox
+    400002: Boombox 1
+    400004: Boombox 10
+    400006: Boombox 11
+    400008: Boombox 12
+    400010: Boombox 13
+    400012: Boombox 14
+    400014: Boombox 15
+    400016: Boombox 16
+    400018: Boombox 17
+    400020: Boombox 18
+    400022: Boombox 19
+    400024: Boombox 2
+    400026: Boombox 20
+    400028: Boombox 3
+    400030: Boombox 4
+    400032: Boombox 5
+    400034: Boombox 6
+    400036: Boombox 7
+    400038: Boombox 8
+    400040: Boombox 9
+    400042: //RootNode
+    2100000: 1001
+    2300000: Boombox
+    2300002: Boombox 1
+    2300004: Boombox 10
+    2300006: Boombox 11
+    2300008: Boombox 12
+    2300010: Boombox 13
+    2300012: Boombox 14
+    2300014: Boombox 15
+    2300016: Boombox 16
+    2300018: Boombox 17
+    2300020: Boombox 18
+    2300022: Boombox 19
+    2300024: Boombox 2
+    2300026: Boombox 20
+    2300028: Boombox 3
+    2300030: Boombox 4
+    2300032: Boombox 5
+    2300034: Boombox 6
+    2300036: Boombox 7
+    2300038: Boombox 8
+    2300040: Boombox 9
+    3300000: Boombox
+    3300002: Boombox 1
+    3300004: Boombox 10
+    3300006: Boombox 11
+    3300008: Boombox 12
+    3300010: Boombox 13
+    3300012: Boombox 14
+    3300014: Boombox 15
+    3300016: Boombox 16
+    3300018: Boombox 17
+    3300020: Boombox 18
+    3300022: Boombox 19
+    3300024: Boombox 2
+    3300026: Boombox 20
+    3300028: Boombox 3
+    3300030: Boombox 4
+    3300032: Boombox 5
+    3300034: Boombox 6
+    3300036: Boombox 7
+    3300038: Boombox 8
+    3300040: Boombox 9
+    4300000: Boombox
+    4300002: Boombox
+    4300004: Boombox
+    4300006: Boombox
+    4300008: Boombox
+    4300010: Boombox
+    4300012: Boombox
+    4300014: Boombox
+    4300016: Boombox
+    4300018: Boombox
+    4300020: Boombox
+    4300022: Boombox
+    4300024: Boombox
+    4300026: Boombox
+    4300028: Boombox
+    4300030: Boombox
+    4300032: Boombox
+    4300034: Boombox
+    4300036: Boombox
+    4300038: Boombox
+    4300040: Boombox
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
