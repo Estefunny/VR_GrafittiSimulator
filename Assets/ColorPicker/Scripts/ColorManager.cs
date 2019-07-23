@@ -5,10 +5,15 @@ using UnityEngine;
 public class ColorManager : MonoBehaviour
 {
 
-    public Color color = Color.blue;
+    public Color color;
+
+    private void Start()
+    {
+        color = Color.blue;
+    }
 
     // Update is called once per frame
-    void onColorChange(HSBColor color)
+    void OnColorChange(HSBColor color)
     {
         this.color = color.ToColor();
     }

@@ -10,6 +10,8 @@ public class Sprayer : MonoBehaviour {
     private float radiusMult = 1;
     private float distanceMult = 1;
 
+    public ParticleSystem particles;
+
     public void setMultipliers(float distance, float radius) {
         distanceMult = distance;
         radiusMult = radius;
@@ -27,8 +29,10 @@ public class Sprayer : MonoBehaviour {
         if (spraying) {
             if (sprayStrength == 0) {
                 stopSpray();
+                particles.Stop();
             } else {
                 sprayStep(origin, direction, sprayStrength);
+                particles.Play();
             }
         }
     }
