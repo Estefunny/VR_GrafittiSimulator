@@ -12,13 +12,37 @@ public class Sprayer : MonoBehaviour {
 
     public ParticleSystem particles;
 
+    private Vector3 particleTransform;
+
+    private void Start()
+    {
+        updateParticleColor();
+        particleTransform = particles.transform.localScale;
+    }
+
+    private void updateParticleColor()
+    {
+        ParticleSystem.MainModule ma = particles.main;
+        if (sprayColor.a == 0)
+        {
+            ma.startColor = new Color(0.8f, 0.8f, 0.8f, 0.5f);
+        }
+        else
+        {
+            ma.startColor = sprayColor;
+        }
+    }
+
     public void setMultipliers(float distance, float radius) {
         distanceMult = distance;
         radiusMult = radius;
+
+        particles.transform.localScale = new Vector3(particleTransform.x * radiusMult, particleTransform.y * radiusMult, particleTransform.z * distanceMult);
     }
 
     public void setSprayColor(Color c) {
         sprayColor = c;
+        updateParticleColor();
     }
 
     public void sprayerUpdate(Vector3 origin, Vector3 direction, float sprayStrength) {
@@ -51,7 +75,6 @@ public class Sprayer : MonoBehaviour {
 	public void startSpray() {
         spraying = true;
         SprayTarget.saveStep();
-        
     }
 
     public void stopSpray() {

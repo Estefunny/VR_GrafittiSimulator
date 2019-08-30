@@ -11,7 +11,7 @@ public class SprayTarget : MonoBehaviour {
     private Texture2D tex;
     private Texture2D originalTex;
 
-    private int undoStepCount = 0;
+    private int undoStepCount = 5;
     private LinkedList<Texture2D> undoSteps = new LinkedList<Texture2D>();
 
     private float maximumDistance = 4;
@@ -50,8 +50,7 @@ public class SprayTarget : MonoBehaviour {
     }
 
     private void clearTexture() {
-        tex.SetPixels(originalTex.GetPixels());
-        tex.Apply();
+        Graphics.CopyTexture(originalTex, tex);
     }
 
     public static void saveStep() {
@@ -85,6 +84,15 @@ public class SprayTarget : MonoBehaviour {
     }
 
     private Texture2D copyTexture(Texture2D t) {
+        Texture2D copy = new Texture2D(t.width, t.height);
+
+        Graphics.CopyTexture(t, copy);
+
+        return copy;
+    }
+
+    private Texture2D copyTextureStart(Texture2D t)
+    {
         Texture2D copy = new Texture2D(t.width, t.height);
 
         copy.SetPixels(t.GetPixels());
@@ -153,8 +161,8 @@ public class SprayTarget : MonoBehaviour {
         sceneTargets.Add(this);
 
         Material m = new Material(material);
-        tex = copyTexture((Texture2D)m.GetTexture("_MainTex"));
-        originalTex = copyTexture(tex);
+        tex = copyTextureStart((Texture2D)m.GetTexture("_MainTex"));
+        originalTex = copyTextureStart(tex);
 
         m.SetTexture("_MainTex", tex);
 

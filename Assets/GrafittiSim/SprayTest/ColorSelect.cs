@@ -35,4 +35,12 @@ public class ColorSelect : MonoBehaviour
             s.setSprayColor(set);
         }
     }
+
+    public void setPickedColor()
+    {
+        foreach (Sprayer s in FindObjectsOfType<Sprayer>())
+        {
+            s.setSprayColor(cm.color);
+        }
+    }
 }
