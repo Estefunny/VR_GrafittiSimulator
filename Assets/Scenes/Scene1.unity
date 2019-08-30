@@ -927,7 +927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9b8bf495b9ea945418b0f25722239846, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9b8bf495b9ea945418b0f25722239846, type: 3}
       propertyPath: m_LocalPosition.x
@@ -993,6 +993,31 @@ PrefabInstance:
       propertyPath: controllerPose
       value: 
       objectReference: {fileID: 270743402}
+    - target: {fileID: 6267880430465597020, guid: 9b8bf495b9ea945418b0f25722239846,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166988655489805379, guid: 9b8bf495b9ea945418b0f25722239846,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2978701391161457222, guid: 9b8bf495b9ea945418b0f25722239846,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8835732081140104850, guid: 9b8bf495b9ea945418b0f25722239846,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109706433855857559, guid: 9b8bf495b9ea945418b0f25722239846,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b8bf495b9ea945418b0f25722239846, type: 3}
 --- !u!1 &605275445 stripped
