@@ -5,6 +5,7 @@ using UnityEngine;
 public class ColorSelect : MonoBehaviour
 {
     public ColorManager cm;
+    public ColorIndicator ci;
     public void setColor(int c)
     {
         Color set = Color.blue;
