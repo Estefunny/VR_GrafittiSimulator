@@ -9,8 +9,19 @@ public class Sprayer : MonoBehaviour {
 
     private float radiusMult = 1;
     private float distanceMult = 1;
+    public AudioSource player;
+    public AudioClip firstClip;
 
     public ParticleSystem particles;
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        player.clip = firstClip;
+        player.loop = true;
+
+    }
 
     public void setMultipliers(float distance, float radius) {
         distanceMult = distance;
@@ -30,9 +41,11 @@ public class Sprayer : MonoBehaviour {
             if (sprayStrength == 0) {
                 stopSpray();
                 particles.Stop();
+                player.Stop();
             } else {
                 sprayStep(origin, direction, sprayStrength);
                 particles.Play();
+                player.Play();
             }
         }
     }
