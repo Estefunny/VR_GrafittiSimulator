@@ -3,15 +3,17 @@ using UnityEngine;
 public class ColorIndicator : MonoBehaviour {
 
 	HSBColor color;
+    public Renderer render;
 
 	void Start() {
-		color = HSBColor.FromColor(GetComponent<Renderer>().sharedMaterial.GetColor("_Color"));
+		color = HSBColor.FromColor(render.sharedMaterial.GetColor("_Color"));
 		transform.parent.BroadcastMessage("SetColor", color);
-	}
+        transform.parent.BroadcastMessage("OnColorChange", color, SendMessageOptions.DontRequireReceiver);
+    }
 
 	void ApplyColor ()
 	{
-		GetComponent<Renderer>().sharedMaterial.SetColor ("_Color", color.ToColor());
+        render.sharedMaterial.SetColor ("_Color", color.ToColor());
 		transform.parent.BroadcastMessage("OnColorChange", color, SendMessageOptions.DontRequireReceiver);
 	}
 

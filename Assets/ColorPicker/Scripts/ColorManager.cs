@@ -12,7 +12,7 @@ public class ColorManager : MonoBehaviour
         color = Color.blue;
     }
 
-    // Update is called once per frame
+    
     void OnColorChange(HSBColor color)
     {
         this.color = color.ToColor();

@@ -14,10 +14,36 @@ public class Sprayer : MonoBehaviour {
 
     private Vector3 particleTransform;
 
+    public AudioSource player;
+    public AudioClip firstClip;
+
+    private bool canSpray = true;
+
+    public static void openColorPicker(bool open)
+    {
+        if (open)
+        {
+            foreach (Sprayer s in FindObjectsOfType<Sprayer>())
+            {
+                s.stopSpray();
+                s.canSpray = false;
+            }
+        } else
+        {
+            foreach (Sprayer s in FindObjectsOfType<Sprayer>())
+            {
+                s.canSpray = true;
+            }
+        }
+    }
+
     private void Start()
     {
         updateParticleColor();
         particleTransform = particles.transform.localScale;
+
+        player.clip = firstClip;
+
     }
 
     private void updateParticleColor()
@@ -46,17 +72,28 @@ public class Sprayer : MonoBehaviour {
     }
 
     public void sprayerUpdate(Vector3 origin, Vector3 direction, float sprayStrength) {
-        if (!spraying && sprayStrength > 0) {
+        if (!spraying && canSpray && sprayStrength > 0) {
             startSpray();
         }
 
         if (spraying) {
-            if (sprayStrength == 0) {
+            if (sprayStrength == 0)
+            {
                 stopSpray();
-                particles.Stop();
-            } else {
+            }
+            else
+            {
                 sprayStep(origin, direction, sprayStrength);
-                particles.Play();
+                player.volume = sprayStrength;
+                ParticleSystem.MainModule ma = particles.main;
+                if (sprayColor.a == 0)
+                {
+                    ma.startColor = new Color(0.8f, 0.8f, 0.8f, 0.5f * sprayStrength);
+                }
+                else
+                {
+                    ma.startColor = new Color(ma.startColor.color.r, ma.startColor.color.g, ma.startColor.color.b, sprayStrength);
+                }
             }
         }
     }
@@ -75,10 +112,14 @@ public class Sprayer : MonoBehaviour {
 	public void startSpray() {
         spraying = true;
         SprayTarget.saveStep();
+        player.Play();
+        particles.Play();
     }
 
     public void stopSpray() {
         spraying = false;
+        player.Stop();
+        particles.Stop();
     }
 
 }

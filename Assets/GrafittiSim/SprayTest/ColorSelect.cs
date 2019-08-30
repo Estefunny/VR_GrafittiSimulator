@@ -40,7 +40,8 @@ public class ColorSelect : MonoBehaviour
     {
         foreach (Sprayer s in FindObjectsOfType<Sprayer>())
         {
-            s.setSprayColor(cm.color);
+            print(cm.color);
+            s.setSprayColor(new Color(cm.color.r, cm.color.g, cm.color.b, 1));
         }
     }
 }
