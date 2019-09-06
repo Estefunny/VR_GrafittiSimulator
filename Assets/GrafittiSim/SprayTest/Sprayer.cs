@@ -7,8 +7,10 @@ public class Sprayer : MonoBehaviour {
     private bool spraying = false;
     private static Color sprayColor = Color.blue;
 
-    private float radiusMult = 1;
-    private float distanceMult = 1;
+    private static float radiusMult = 1;
+    private static float distanceMult = 1;
+    private static float partWidth = 1;
+    private static float partLength = 1;
 
     public ParticleSystem particles;
 
@@ -41,6 +43,7 @@ public class Sprayer : MonoBehaviour {
     {
         updateParticleColor();
         particleTransform = particles.transform.localScale;
+        updateParticleTransform();
 
         player.clip = firstClip;
 
@@ -59,11 +62,22 @@ public class Sprayer : MonoBehaviour {
         }
     }
 
-    public void setMultipliers(float distance, float radius) {
+    public static void setSprayCap(float distance, float radius, float particleLength, float particleWidth)
+    {
         distanceMult = distance;
         radiusMult = radius;
+        partLength = particleLength;
+        partWidth = particleWidth;
 
-        particles.transform.localScale = new Vector3(particleTransform.x * radiusMult, particleTransform.y * radiusMult, particleTransform.z * distanceMult);
+        foreach (Sprayer s in FindObjectsOfType<Sprayer>())
+        {
+            s.updateParticleTransform();
+        }
+    }
+
+    public void updateParticleTransform() {
+
+        particles.transform.localScale = new Vector3(particleTransform.x * partWidth, particleTransform.y * partWidth, particleTransform.z * partLength);
     }
 
     public static void setSprayColor(Color c) {

@@ -13,4 +13,9 @@ public class ColorSelect : MonoBehaviour
         Sprayer.setSprayColor(new Color(cm.color.r, cm.color.g, cm.color.b, 1));
         
     }
+
+    public void undoAction()
+    {
+        SprayTarget.undoStep();
+    }
 }

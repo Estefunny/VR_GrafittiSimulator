@@ -50,7 +50,6 @@ public class SprayTest : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.S)) {
             capIndex = (capIndex + 1) % capDist.Length;
-            sprayer.setMultipliers(capDist[capIndex], capRadi[capIndex]);
             print("Cap Selected: Distance " + capDist[capIndex] + ", Radius " + capRadi[capIndex]);
         }
 
