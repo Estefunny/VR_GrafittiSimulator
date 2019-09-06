@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 528041603560988570}
   - component: {fileID: 528041603560988571}
   m_Layer: 0
-  m_Name: CanPickup
+  m_Name: can_korrekt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,17 +143,17 @@ PrefabInstance:
     - target: {fileID: 228569019243116585, guid: 71f5c0694e7e8d643bf8c88cedeea544,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.063
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 228569019243116585, guid: 71f5c0694e7e8d643bf8c88cedeea544,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.015
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 228569019243116585, guid: 71f5c0694e7e8d643bf8c88cedeea544,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 228569019243116585, guid: 71f5c0694e7e8d643bf8c88cedeea544,
         type: 3}

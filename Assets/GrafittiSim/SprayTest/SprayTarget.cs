@@ -25,6 +25,7 @@ public class SprayTarget : MonoBehaviour {
     private float minimumAlpha = 0.5f;
 
     public float radiusScale = 1;
+    public float distanceScale = 1;
     public Vector2 dripDirection;
 
     private int drips = 0;
@@ -172,7 +173,7 @@ public class SprayTarget : MonoBehaviour {
         maximumCenterRadius *= radiusScale;
         minimumRadius *= radiusScale;
         minimumCenterRadius *= radiusScale;
-        maximumDistance *= radiusScale;
+        maximumDistance *= radiusScale * distanceScale;
     }
 
 }

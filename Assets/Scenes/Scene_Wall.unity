@@ -696,6 +696,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2581974574673901990, guid: 18129b8c53a2806419883ed3567cd93f,
+        type: 3}
+      propertyPath: cylinder
+      value: 
+      objectReference: {fileID: 1429839102}
     - target: {fileID: 2581974575075944639, guid: 18129b8c53a2806419883ed3567cd93f,
         type: 3}
       propertyPath: m_IsActive
@@ -967,7 +972,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.08
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
@@ -987,7 +992,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 4e3c1c17b47e9334c86a22129a0e8a12, type: 2}
   meshRenderer: {fileID: 690061388}
-  radiusScale: 0.08
+  radiusScale: 0.09
+  distanceScale: 1.5
   dripDirection: {x: 0, y: 1}
 --- !u!4 &718453110 stripped
 Transform:
@@ -1150,17 +1156,17 @@ PrefabInstance:
     - target: {fileID: 528041603560988568, guid: b207947f771efd94da93ba76f1dc8ce5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.26
+      value: 4.9905
       objectReference: {fileID: 0}
     - target: {fileID: 528041603560988568, guid: b207947f771efd94da93ba76f1dc8ce5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.032
+      value: 1.0546
       objectReference: {fileID: 0}
     - target: {fileID: 528041603560988568, guid: b207947f771efd94da93ba76f1dc8ce5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.945
+      value: 7.8547
       objectReference: {fileID: 0}
     - target: {fileID: 528041603560988568, guid: b207947f771efd94da93ba76f1dc8ce5,
         type: 3}
@@ -1816,6 +1822,98 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411064910}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1429839102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1429839103}
+  - component: {fileID: 1429839106}
+  - component: {fileID: 1429839105}
+  - component: {fileID: 1429839104}
+  m_Layer: 26
+  m_Name: Cylinder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1429839103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429839102}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
+  m_LocalScale: {x: 0.002, y: 0.2, z: 0.002}
+  m_Children: []
+  m_Father: {fileID: 1642137150}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!136 &1429839104
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429839102}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5000001
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!23 &1429839105
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429839102}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 29d8c598c87deb345a623ab142819fcc, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &1429839106
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429839102}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1446111356
 GameObject:
   m_ObjectHideFlags: 0
@@ -2067,11 +2165,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e92e227c99f2c142986970767073fd8, type: 3}
+--- !u!1 &1562435254 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 7f205b6aefc55c84a88371aea185e8e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 144839309}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1562435256 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: 7f205b6aefc55c84a88371aea185e8e8,
+    type: 3}
+  m_PrefabInstance: {fileID: 144839309}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1562435259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1562435254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bee96dc41188f5b479c0a06d493cd715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: bf8b5d997dd5c9141ae23ff416878948, type: 2}
+  meshRenderer: {fileID: 1562435256}
+  radiusScale: 0.1
+  distanceScale: 1
+  dripDirection: {x: 0, y: 1}
 --- !u!4 &1588606300 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8729419043667686886, guid: 5cfd15abd124e694e91c7c566ec5f529,
     type: 3}
   m_PrefabInstance: {fileID: 2063733290}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1642137150 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 485514, guid: dc06161b6d97feb419f45f03b62e14b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1893138394}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1642137151 stripped
 MonoBehaviour:
