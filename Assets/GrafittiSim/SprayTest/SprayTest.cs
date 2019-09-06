@@ -14,7 +14,7 @@ public class SprayTest : MonoBehaviour {
     private int capIndex = 0;
 
     private void Start() {
-        sprayer.setSprayColor(colors[colorIndex]);
+        Sprayer.setSprayColor(colors[colorIndex]);
     }
 
     private void Update() {
@@ -44,7 +44,7 @@ public class SprayTest : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.C)) {
             colorIndex = (colorIndex + 1) % colors.Length;
-            sprayer.setSprayColor(colors[colorIndex]);
+            Sprayer.setSprayColor(colors[colorIndex]);
             print("Color Selected: " + colors[colorIndex]);
         }
 

@@ -13,15 +13,18 @@ public class Draggable : MonoBehaviour
     public SteamVR_Action_Boolean selectAction;
     public SteamVR_Behaviour_Pose controllerPose;
     public SteamVR_Input_Sources handType;
+    public LineRenderer rayRenderer;
 
 
     void FixedUpdate()
 	{
+
         //Wenn trigger gedrückt wird
-		if (SteamVR_Actions.default_Squeeze.GetAxis(SteamVR_Input_Sources.RightHand) > 0) {
+        if (SteamVR_Actions.default_Squeeze.GetAxis(SteamVR_Input_Sources.RightHand) > 0) {
 			dragging = false;
 
             Ray ray = new Ray(controllerPose.transform.position, controllerPose.transform.forward);
+            
             //var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 			if (GetComponent<Collider>().Raycast(ray, out hit, 100)) {

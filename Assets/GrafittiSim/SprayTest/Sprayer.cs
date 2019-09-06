@@ -5,7 +5,7 @@ using UnityEngine;
 public class Sprayer : MonoBehaviour {
 
     private bool spraying = false;
-    private Color sprayColor = Color.blue;
+    private static Color sprayColor = Color.blue;
 
     private float radiusMult = 1;
     private float distanceMult = 1;
@@ -66,9 +66,12 @@ public class Sprayer : MonoBehaviour {
         particles.transform.localScale = new Vector3(particleTransform.x * radiusMult, particleTransform.y * radiusMult, particleTransform.z * distanceMult);
     }
 
-    public void setSprayColor(Color c) {
+    public static void setSprayColor(Color c) {
         sprayColor = c;
-        updateParticleColor();
+        foreach (Sprayer s in FindObjectsOfType<Sprayer>())
+        {
+            s.updateParticleColor();
+        }
     }
 
     public void sprayerUpdate(Vector3 origin, Vector3 direction, float sprayStrength) {
