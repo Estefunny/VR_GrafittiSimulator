@@ -12,7 +12,10 @@ public class ColorManager : MonoBehaviour
         color = Color.blue;
     }
 
-    
+    /// <summary>
+    /// converts a given HSBcolor to a "regular" RGB color
+    /// </summary>
+    /// <param name="color"></param> the HSBColor
     void OnColorChange(HSBColor color)
     {
         this.color = color.ToColor();

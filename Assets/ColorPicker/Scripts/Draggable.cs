@@ -12,6 +12,10 @@ public class Draggable : MonoBehaviour
     public SteamVR_Input_Sources controller =SteamVR_Input_Sources.RightHand;
     public SteamVR_Behaviour_Pose controllerPose;
 
+
+    /// <summary>
+    /// In case the right hand's controller's trigger is pressed, cast a forward ray and drag the selector
+    /// </summary>
     void FixedUpdate()
 	{
 
