@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class used to test the spray functions
+/// </summary>
 public class SprayTest : MonoBehaviour {
 
     public Sprayer sprayer;
